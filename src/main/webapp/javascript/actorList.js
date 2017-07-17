@@ -6,9 +6,13 @@ var tabella = "";
  * Elabora i dati restituiti dal servizio REST
  */
 var elaboraDati = function( data ){
-    tabella += "<table><thead><tr>" +
-            "<td>id</td><td>name</td><td>last name</td>" +
-            "<td>last update</td></tr></thead>";
+    tabella += "<table><thead><tr>";
+    tabella += "<td>id</td>";
+    tabella += "<td>name</td>";
+    tabella += "<td>last name</td>";
+    tabella += "<td>last update</td>";
+    tabella += "</tr></thead>";
+    
     $.each( data, elaboraElemento);
     tabella += "</table>";
     
@@ -19,16 +23,19 @@ var elaboraDati = function( data ){
  * Elabora il singolo elemento
  */
 var elaboraElemento = function( chiave, valore ){
-    //$("#contenuto").append("");
-    tabella += "<tr><td>" + valore.id + "</td>" +
-            "<td>" + valore.firstName + "</td>" +
-            "<td>" + valore.lastName + "</td>" +
-            "<td>" + valore.lastUpdate + "</td>" +
-            "</tr>";
+    var lastUpdate = new Date( valore.lastUpdate );
+    var lastUpdateStr = lastUpdate.toString();
+    tabella += "<tr><td>" + valore.id + "</td>";
+    tabella += "<td>" + valore.firstName + "</td>";
+    tabella += "<td>" + valore.lastName + "</td>";
+    tabella += "<td>" + lastUpdateStr + "</td>";
+    tabella += "</tr>";
 };
 
+/*
+ * Fai la chiamata AJAX e poi elabora i dati restituiti dalla chiamata
+ */
 var main = function() {
-    $("li").text("miao");
     $.getJSON(PERCORSO_SERVIZIO_REST, elaboraDati);
 };
 
