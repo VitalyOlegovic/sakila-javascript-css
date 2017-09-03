@@ -16,6 +16,8 @@ var elaboraDati = function( data ){
     $.each( data, elaboraElemento);
     tabella += "</table>";
     
+    // IMPORTANTE: fare un solo append
+    // con la stringa completa
     $("#contenuto").append(tabella);
 };
 
