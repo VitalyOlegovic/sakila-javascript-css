@@ -1,13 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-
-<!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <meta charset="utf-8">
-<title>Actor list</title>
-<meta name="description" content="">
-<meta name="author" content="">
+<title>New actor</title>
 
 <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -26,19 +21,31 @@
 </head>
 <body>
 
-	<!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	<div class="container">
 		<div class="row" style="margin-top: 10%">
-				<h1>Actor list</h1>
-				<nav>
-					<a href="../index.html">Home</a>
-				</nav>
-				<article id="contenuto"></article>
+		
+			<header>
+				<h1>New actor</h1>
+				<nav style="margin-bottom: 20px">
+    				<a href="../index.html">Home</a>
+    			</nav>
+			</header>
+		
+			<article>
+				<section>
+					<label>First name: </label> <input type="text" id="firstName" />
+				</section>
+				<section>
+					<label>Last name: </label> <input type="text" id="lastName" />
+				</section>
+				<button class="button-primary" id="createActor">Create actor</button>
+				
+				<section id="result"></section>
+			</article>
 		</div>
 	</div>
-	<script src="../javascript/actor/actorList.js"></script>
-	<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+	<script src="../javascript/actor/newActor.js"></script>
+
 </body>
 </html>
