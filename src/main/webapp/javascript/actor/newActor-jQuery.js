@@ -2,13 +2,15 @@ var PERCORSO_SERVIZIO_REST = '/sakila-webservices/rest/actor';
 
 function successCallback(msg){
 	console.log('successCallback');
-	$("#result").innerHTML = "Success.";
+	$("#result").html("Success.");
 	$("#firstName").val("");
 	$("#lastName").val("");
 }
 
-function failureCallback(msg){
-	$("#result").innerHTML = "There was a problem with the request.";
+function failureCallback(jqXHR, textStatus, errorThrown) {
+    console.log(textStatus); //error logging
+    console.log(jqXHR);
+    console.log(errorThrown);
 }
 
 $.postJSON = function(url, data, callback) {
@@ -18,11 +20,9 @@ $.postJSON = function(url, data, callback) {
         'contentType': 'application/json',
         'data': data,
         'dataType': 'json',
-        'success': function(){console.log('done')},
-        'error' : function(jqXHR, textStatus, errorThrown) {
-            console.log(textStatus); //error logging
-        }
-    }).done( successCallback ).fail( failureCallback );
+        'success': successCallback,
+        'error' : failureCallback
+    });
 };
 
 function clickHandler(){
@@ -31,6 +31,7 @@ function clickHandler(){
 	
 	var actor = { "firstName" : fn, "lastName" : ln };
 	var jsonString = JSON.stringify( actor );
+	console.log( jsonString );
 	
 	$.postJSON( PERCORSO_SERVIZIO_REST, jsonString, successCallback );
 }
