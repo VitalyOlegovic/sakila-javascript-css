@@ -26,7 +26,7 @@ var elaboraDati = function( data ){
  */
 var elaboraElemento = function( valore ){
     var lastUpdate = new Date( valore.lastUpdate );
-    var lastUpdateStr = lastUpdate.toString();
+    var lastUpdateStr = lastUpdate.toLocaleDateString();
     tabella += "<tr><td>" + valore.id + "</td>";
     tabella += "<td>" + valore.firstName + "</td>";
     tabella += "<td>" + valore.lastName + "</td>";
