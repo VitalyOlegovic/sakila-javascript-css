@@ -1,3 +1,5 @@
+"use strict";
+
 var PERCORSO_SERVIZIO_REST = '/sakila-webservices/rest/actor';
 
 function successCallback(msg){

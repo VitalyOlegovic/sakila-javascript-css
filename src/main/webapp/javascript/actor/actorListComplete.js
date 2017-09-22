@@ -9,10 +9,12 @@ var tabella = "";
  */
 var elaboraDati = function( data ){
     tabella += "<table><thead><tr>";
-    tabella += "<td>id</td>";
-    tabella += "<td>name</td>";
-    tabella += "<td>last name</td>";
-    tabella += "<td>last update</td>";
+    tabella += "<td>Id</td>";
+    tabella += "<td>Name</td>";
+    tabella += "<td>Last name</td>";
+    tabella += "<td>Last update</td>";
+    tabella += "<td>Edit</td>";
+    tabella += "<td>Delete</td>";
     tabella += "</tr></thead>";
     
     data.forEach(elaboraElemento);
@@ -33,6 +35,8 @@ var elaboraElemento = function( valore ){
     tabella += "<td>" + valore.firstName + "</td>";
     tabella += "<td>" + valore.lastName + "</td>";
     tabella += "<td>" + lastUpdateStr + "</td>";
+    tabella += "<td><a href='edit.html?actorId=" + valore.lastName + "'>Edit</a></td>";
+    tabella += "<td><a href='delete.html?actorId=" + valore.lastName + "'>Delete</a></td>";
     tabella += "</tr>";
 };
 
