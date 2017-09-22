@@ -4,6 +4,36 @@ var PERCORSO_SERVIZIO_REST = '/sakila-webservices/rest/actor';
 
 var tabella = "";
 
+var eventoElimina = function(id){
+	// TODO Aggiungere eliminazione
+	console.log(id)
+}
+
+var aggiungiEventElimina = function(bottone){
+	var fnElimina = function(){ eventoElimina(bottone.id) };
+	bottone.addEventListener('click', fnElimina);
+}
+
+var eventoModifica = function(id){
+	// TODO Aggiungere modifica
+	console.log(id);
+}
+
+var aggiungiEventoModifica = function(bottone){
+	var fnModifica = function(){ eventoModifica(bottone.id) };
+	bottone.addEventListener('click', fnModifica);
+}
+
+var aggiungiEventi = function(){
+	var editButtons = document.getElementsByClassName('edit-button');
+	var editBtnArray = Array.from(editButtons);
+	editBtnArray.forEach( aggiungiEventoModifica );
+	
+	var deleteButtons = document.getElementsByClassName('delete-button');
+	var deleteBtnArray = Array.from(deleteButtons);
+	deleteBtnArray.forEach( aggiungiEventoModifica );
+}
+
 /*
  * Elabora i dati restituiti dal servizio REST
  */
@@ -23,6 +53,8 @@ var elaboraDati = function( data ){
     // IMPORTANTE: fare un solo append
     // con la stringa completa
     document.getElementById("contenuto").innerHTML = tabella;
+    
+    aggiungiEventi();
 };
 
 /*
@@ -35,8 +67,8 @@ var elaboraElemento = function( valore ){
     tabella += "<td>" + valore.firstName + "</td>";
     tabella += "<td>" + valore.lastName + "</td>";
     tabella += "<td>" + lastUpdateStr + "</td>";
-    tabella += "<td><a href='edit.html?actorId=" + valore.lastName + "'>Edit</a></td>";
-    tabella += "<td><a href='delete.html?actorId=" + valore.lastName + "'>Delete</a></td>";
+    tabella += "<td><button class='edit-button' id='edit-" + valore.id + "'>Edit</button></td>";
+    tabella += "<td><button class='delete-button' id='delete-" + valore.id + "'>Delete</button></td>";
     tabella += "</tr>";
 };
 
