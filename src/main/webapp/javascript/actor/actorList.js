@@ -39,7 +39,7 @@ var elaboraElemento = function( valore ){
 /*
  * Fai la chiamata AJAX e poi elabora i dati restituiti dalla chiamata
  */
-var main = function() {    
+var generaTabellaAttori = function() {    
     var request = new XMLHttpRequest();
     request.open('GET', PERCORSO_SERVIZIO_REST, true);
 
@@ -66,8 +66,10 @@ var main = function() {
  * Aggancia il metodo main a quando il documento è caricato
  */
 if (document.readyState === 'complete' || document.readyState !== 'loading') {
-	main();
+	generaTabellaAttori();
 } else {
-	document.addEventListener('DOMContentLoaded', main);
+	document.addEventListener('DOMContentLoaded', generaTabellaAttori);
 }
+
+
 

@@ -3,20 +3,39 @@
 var PERCORSO_SERVIZIO_REST = '/sakila-webservices/rest/actor';
 
 var tabella = "";
+var richiestaEliminazione;
 
-var eventoElimina = function(id){
-	// TODO Aggiungere eliminazione
-	console.log(id)
+var callbackEliminazione = function(){
+	if (richiestaEliminazione.readyState === XMLHttpRequest.DONE) {
+		if (richiestaEliminazione.status === 200) {
+			window.alert('The actor has been deleted.');
+		} else {
+			window.alert('There was a problem with the request.');
+		}
+	}
 }
 
-var aggiungiEventElimina = function(bottone){
+var eventoElimina = function(idBottone){
+	var a = idBottone.split('-');
+	var idAttore = a[1];
+	
+    richiestaEliminazione = new XMLHttpRequest();
+    richiestaEliminazione.onreadystatechange = callbackEliminazione;
+    var percorsoEliminazione = PERCORSO_SERVIZIO_REST + "/" + idAttore;
+    richiestaEliminazione.open('DELETE', percorsoEliminazione, true);
+    richiestaEliminazione.send();
+}
+
+var aggiungiEventoElimina = function(bottone){
 	var fnElimina = function(){ eventoElimina(bottone.id) };
 	bottone.addEventListener('click', fnElimina);
 }
 
-var eventoModifica = function(id){
-	// TODO Aggiungere modifica
-	console.log(id);
+var eventoModifica = function(idBottone){
+	var a = idBottone.split('-');
+	var idAttore = a[1];
+	
+	window.location.href = "editActor.html?actorId=" + idAttore;
 }
 
 var aggiungiEventoModifica = function(bottone){
@@ -31,7 +50,7 @@ var aggiungiEventi = function(){
 	
 	var deleteButtons = document.getElementsByClassName('delete-button');
 	var deleteBtnArray = Array.from(deleteButtons);
-	deleteBtnArray.forEach( aggiungiEventoModifica );
+	deleteBtnArray.forEach( aggiungiEventoElimina );
 }
 
 /*
@@ -75,7 +94,7 @@ var elaboraElemento = function( valore ){
 /*
  * Fai la chiamata AJAX e poi elabora i dati restituiti dalla chiamata
  */
-var main = function() {    
+var generaTabellaAttori = function() {    
     var request = new XMLHttpRequest();
     request.open('GET', PERCORSO_SERVIZIO_REST, true);
 
@@ -104,6 +123,6 @@ var main = function() {
 if (document.readyState === 'complete' || document.readyState !== 'loading') {
 	main();
 } else {
-	document.addEventListener('DOMContentLoaded', main);
+	document.addEventListener('DOMContentLoaded', generaTabellaAttori);
 }
 
