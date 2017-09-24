@@ -66,6 +66,7 @@ function editActor() {
 	request.setRequestHeader('Content-Type', 'application/json');
 	
 	var jsonString = JSON.stringify( actor );
+	console.log(jsonString);
 	request.send( jsonString );
 }
 

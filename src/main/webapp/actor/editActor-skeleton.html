@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<meta charset="utf-8">
+<title>Actor list</title>
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
+	rel="stylesheet" type="text/css">
+
+<!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<link rel="stylesheet" href="../css/normalize.css">
+<link rel="stylesheet" href="../css/skeleton.css">
+
+</head>
+<body>
+
+	<!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<div class="container">
+		<div class="row" style="margin-top: 10%">
+			<header>
+				<h1>Edit actor</h1>
+				<nav>
+					<a href="../index.html">Home</a>
+				</nav>
+			</header>
+
+			<article>
+				<input type="hidden" id="actorId"></input>
+				<section>
+					<label>First name: </label> <input type="text" id="firstName" />
+				</section>
+				<section>
+					<label>Last name: </label> <input type="text" id="lastName" />
+				</section>
+				<button id="editActor" class="button-primary">Edit actor</button>
+				<button type="reset" class="button-primary">Reset</button>
+				<section id="result"></section>
+			</article>
+		</div>
+	</div>
+	<script src="../javascript/actor/editActor.js"></script>
+	<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
