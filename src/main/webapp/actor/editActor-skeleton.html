@@ -5,7 +5,7 @@
 <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <meta charset="utf-8">
-<title>Actor list</title>
+<title>Edit actor</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -33,12 +33,13 @@
 			<header>
 				<h1>Edit actor</h1>
 				<nav>
-					<a href="../index.html">Home</a>
+					<a href="../index.html">Home</a> > <a href="actorListComplete-skeleton.html">Actor list</a>
 				</nav>
 			</header>
 
 			<article>
 				<input type="hidden" id="actorId"></input>
+				<form>
 				<section>
 					<label>First name: </label> <input type="text" id="firstName" />
 				</section>
@@ -47,6 +48,7 @@
 				</section>
 				<button id="editActor" class="button-primary">Edit actor</button>
 				<button type="reset" class="button-primary">Reset</button>
+				</form>
 				<section id="result"></section>
 			</article>
 		</div>

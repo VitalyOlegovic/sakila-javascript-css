@@ -20,11 +20,12 @@ section {
 	<header>
 		<h1>Edit actor</h1>
 		<nav>
-    		<a href="../index.html">Home</a>
+    		<a href="../index.html">Home</a> > <a href="actorListComplete.html">Actor list</a>
     	</nav>
 	</header>
 
 	<article>
+		<form>
 		<input type="hidden" id="actorId"></input>
 		<section>
 			<label>First name: </label> <input type="text" id="firstName" />
@@ -35,6 +36,7 @@ section {
 		<button id="editActor">Edit actor</button>
 		<button type="reset">Reset</button>
 		<section id="result"></section>
+		</form>
 	</article>
 
 	<script src="../javascript/actor/editActor.js"></script>
