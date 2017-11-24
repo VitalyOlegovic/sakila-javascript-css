@@ -1,4 +1,4 @@
-var PERCORSO_SERVIZIO_REST = '/sakila-webservices/rest/actor';
+var PERCORSO_SERVIZIO_REST = '/sakila-spring/rest/actor';
 
 var valorizzaDatiAttore = function(){
 	var parametriRequest = window.location.search;
@@ -15,7 +15,7 @@ var valorizzaDatiAttore = function(){
         var data = JSON.parse(request.responseText);
         
         var actorId = document.getElementById('actorId');
-        actorId.value = data.id;
+        actorId.value = idAttore;
         
         var fn = document.getElementById('firstName');
         fn.value = data.firstName;

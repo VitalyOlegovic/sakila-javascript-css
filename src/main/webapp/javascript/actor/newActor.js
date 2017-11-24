@@ -1,6 +1,6 @@
 "use strict";
 
-var PERCORSO_SERVIZIO_REST = '/sakila-webservices/rest/actor';
+var PERCORSO_SERVIZIO_REST = '/sakila-spring/rest/actor';
 
 var request;
 
